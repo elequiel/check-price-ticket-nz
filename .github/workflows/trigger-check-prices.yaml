@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: ls #pip install -r requirements.txt
       - name: Run script
         run: python3 nz_tickets_job.py
