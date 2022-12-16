@@ -2,11 +2,11 @@ name: Check ticket price and send msg to telegram
 
 on:
   schedule:
-    # Runs "at minute 55 past every hour" (see https://crontab.guru)
+    # Runs "every 8 hours" (see https://crontab.guru)
     #- cron: '0 */8 * * *'
     - cron: '* * * * *'
 jobs:
-  build:
+  run_script:
     name: Trigger Site Rebuild
     runs-on: ubuntu-latest
     steps:
