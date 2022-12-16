@@ -1,12 +1,14 @@
-name: Check ticket price and send msg to telegram
+name: Alert ticket price
 
-# on:
-#   schedule:
-#     # Runs "every 8 hours" (see https://crontab.guru)
-#     #- cron: '0 */8 * * *'
-#     - cron: '* * * * *'
-on: 
-  workflow_dispatch:
+on:
+  schedule:
+    # Runs "every 8 hours" (see https://crontab.guru)
+    - cron: '0 */8 * * *'
+    #- cron: '* * * * *'
+
+# Manual trigger
+# on: 
+#   workflow_dispatch:
 
 env:
   CHAT_ID: ${{secrets.CHAT_ID}}
