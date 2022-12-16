@@ -1,10 +1,13 @@
 name: Check ticket price and send msg to telegram
 
-on:
-  schedule:
-    # Runs "every 8 hours" (see https://crontab.guru)
-    #- cron: '0 */8 * * *'
-    - cron: '* * * * *'
+# on:
+#   schedule:
+#     # Runs "every 8 hours" (see https://crontab.guru)
+#     #- cron: '0 */8 * * *'
+#     - cron: '* * * * *'
+on: 
+  workflow_dispatch:
+
 jobs:
   run_script:
     name: Trigger Site Rebuild
