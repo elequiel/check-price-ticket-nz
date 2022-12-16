@@ -8,6 +8,11 @@ name: Check ticket price and send msg to telegram
 on: 
   workflow_dispatch:
 
+env:
+  CHAT_ID: ${{secrets.CHAT_ID}}
+  TELEGRAM_API_KEY: ${{secrets.TELEGRAM_API_KEY}}
+  TICKET_URL: ${{secrets.TICKET_URL}}
+
 jobs:
   run_script:
     name: Run script .py script
