@@ -1,4 +1,4 @@
-name: Trigger Site Rebuild on a CRON Schedule
+name: Check ticket price and send msg to telegram
 
 on:
   schedule:
