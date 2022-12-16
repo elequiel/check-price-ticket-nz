@@ -10,13 +10,13 @@ on:
 
 jobs:
   run_script:
-    name: Trigger Site Rebuild
+    name: Run script .py script
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Install Dependencies
-        run: ls #pip install -r requirements.txt
+        run: pip install -r requirements.txt
       - name: Run script
         run: python3 nz_tickets_job.py
