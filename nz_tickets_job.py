@@ -26,9 +26,14 @@ def get_prices():
     return output
 
 def send_message():
-    prices = get_prices()
     try:
-        response = requests.post(apiURL, json={'chat_id': CHAT_ID, 'text': f"{tabulate(get_prices(),headers=['Dia', 'Valor'])}"})
+        prices = dict(get_prices())
+        send = []
+        for price in range(len([*prices.values()])):
+            if [*prices.values()][price] < 6200:
+                print(str(price).zfill(2), [*prices.values()][price])
+                output.append([str(price).zfill(2), [*prices.values()][price]])
+        response = requests.post(apiURL, json={'chat_id': CHAT_ID, 'text': f"{tabulate(send,headers=['Dia', 'Valor'])}"})
         return response.text
     except Exception as e:
         return print(e)
