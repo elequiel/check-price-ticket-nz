@@ -32,7 +32,7 @@ def send_message():
         for price in range(len([*prices.values()])):
             if [*prices.values()][price] < 6200:
                 print(str(price).zfill(2), [*prices.values()][price])
-                output.append([str(price).zfill(2), [*prices.values()][price]])
+                send.append([str(price).zfill(2), [*prices.values()][price]])
         response = requests.post(apiURL, json={'chat_id': CHAT_ID, 'text': f"{tabulate(send,headers=['Dia', 'Valor'])}"})
         return response.text
     except Exception as e:
