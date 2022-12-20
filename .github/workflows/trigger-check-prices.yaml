@@ -3,7 +3,7 @@ name: Alert ticket price
 on:
   schedule:
     # Runs "every 8 hours" (see https://crontab.guru)
-    - cron: '0 */7,22 * * *'
+    - cron: '15 7-22 * * *'
     #- cron: '* * * * *'
 
 # Manual trigger
@@ -17,7 +17,7 @@ env:
 
 jobs:
   run_script:
-    name: Run script .py script
+    name: Run script .py
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
