@@ -3,12 +3,12 @@ name: Alert ticket price
 on:
   schedule:
     # Runs "every 8 hours" (see https://crontab.guru)
-    - cron: '0 */8 * * *'
-    #- cron: '* * * * *'
+    - cron: '0 10-23 * * *'
+    #- cron: '* */2 * * *'
 
 # Manual trigger
-# on: 
-#   workflow_dispatch:
+#on: 
+#  workflow_dispatch:
 
 env:
   CHAT_ID: ${{secrets.CHAT_ID}}
@@ -17,7 +17,7 @@ env:
 
 jobs:
   run_script:
-    name: Run script .py script
+    name: Run script .py
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

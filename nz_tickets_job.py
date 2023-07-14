@@ -19,16 +19,18 @@ def get_prices():
     output = []
     for day in range(len(days[0])):
         if("Indirect" in days[0][day].keys()):
-            item = []
-            item.append(day+1)
-            item.append(days[0][day]['Indirect']['Price'])
-            output.append(item)
+            output.append([day+1, days[0][day]['Indirect']['Price']])
     return output
 
 def send_message():
-    prices = get_prices()
     try:
-        response = requests.post(apiURL, json={'chat_id': CHAT_ID, 'text': f"{tabulate(get_prices(),headers=['Dia', 'Valor'])}"})
+        prices = dict(get_prices())
+        send = []
+        for price in range(len([*prices.values()])):
+            if [*prices.values()][price] < 6000:
+                print(str(price).zfill(2), [*prices.values()][price])
+                send.append([str([*prices.keys()][price]).zfill(2), [*prices.values()][price]])
+        response = requests.post(apiURL, json={'chat_id': CHAT_ID, 'text': f"{tabulate(send,headers=['Dia', 'Valor'])}"})
         return response.text
     except Exception as e:
         return print(e)
